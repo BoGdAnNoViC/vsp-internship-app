@@ -12,10 +12,9 @@ import { useState, useEffect } from "react";
 
 export default function App() {
   const [universities, setUniversities] = useState([]);
-  const [countries, setCountries] = useState([]);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+
   const getUniversities = async () => {
     setUniversities([]);
     setLoading(true);
@@ -26,32 +25,21 @@ export default function App() {
     setUniversities(universitiesJson);
     setLoading(false);
   };
-  //useEffect(() => {
-  //const getCountries = async () => {
-  //const countries = await fetch("https://restcountries.com/v3.1/all");
-  //const countriesJson = await countries.json();
-  //setCountries(countriesJson);
-  // };
 
-  //    getCountries();
-  //  getUniversities(); // run it, run it
-
-  //    return () => {
-  // this now gets called when the component unmounts
-  //  };
-  // });
-  //aici poti sa faci modificari cum sa iti arate fiecare element in parte
   const renderItem = ({ item }) => {
-    //de ex
     return (
       <View
-        style={{ backgroundColor: "red", paddingBottom: 10, marginBottom: 10 }}
+        style={{
+          backgroundColor: "#277BC0",
+          paddingBottom: 10,
+          marginBottom: 10,
+        }}
       >
         <Text>{item.name}</Text>
       </View>
     );
   };
-  //nah ce fac acum ii sa afisez in lista numele univeritatii
+
   return (
     <View style={styles.container}>
       <TouchableHighlight
